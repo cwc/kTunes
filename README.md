@@ -5,7 +5,7 @@ Control your media player from within Kerbal Space Program
 
 ## Where?
 
-You can download kTunes at [CurseForge](http://kerbal.curseforge.com/ksp-mods/222945-ktunes/files).
+You can download kTunes from [Curse](http://www.curse.com/ksp-mods/kerbal/222945-ktunes).
 
 ## What?
 
