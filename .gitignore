@@ -1,0 +1,6 @@
+*.suo
+*.sdf
+*.opensdf
+*.pdb
+bin/
+obj/
