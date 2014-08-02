@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kTunes", "kTunes\kTunes.csproj", "{504C3F2A-38A3-490B-94D6-4634875027F8}"
 EndProject
 Global
@@ -13,6 +13,9 @@ Global
 		{504C3F2A-38A3-490B-94D6-4634875027F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504C3F2A-38A3-490B-94D6-4634875027F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{504C3F2A-38A3-490B-94D6-4634875027F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = kTunes\kTunes.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
