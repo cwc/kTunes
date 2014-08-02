@@ -1,3 +1,6 @@
+# Prevent committing any copied assemblies that shouldn't be distributed
+lib/*
+
 *.suo
 *.sdf
 *.opensdf
