@@ -8,3 +8,4 @@ lib/*
 bin/
 obj/
 *.userprefs
+.DS_Store

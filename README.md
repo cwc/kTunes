@@ -21,4 +21,6 @@ Media keys are available on most keyboards. Not mine.
 
 ## Who?
 
-Made possible by the excellent [InputSimulator](http://inputsimulator.codeplex.com/) library.
+Windows support made possible by the excellent [InputSimulator](http://inputsimulator.codeplex.com/) library.
+
+Player control icons based on the 'Play' design by [Björn Andersson](http://www.thenounproject.com/bjorna1) from the [Noun Project](http://www.thenounproject.com).

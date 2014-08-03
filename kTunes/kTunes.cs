@@ -18,7 +18,7 @@ namespace kTunes
 
 		// Use a random window ID so a conflict will be unlikely
 		private static int playerWindowId = UnityEngine.Random.Range (500, int.MaxValue);
-		private static Rect playerWindow = new Rect (50, 50, 300, 50);
+		private static Rect playerWindow = new Rect (50, 50, 175, 60);
 
 		private static ApplicationLauncherButton appLauncherButton;
 		private static bool isPlayerVisible = false;
@@ -60,7 +60,7 @@ namespace kTunes
 		public void OnGUI ()
 		{
 			if (isPlayerVisible) {
-				playerWindow = GUI.Window (playerWindowId, playerWindow, OnLayoutPlayerWindow, Name, HighLogic.Skin.window);
+				playerWindow = GUI.Window (playerWindowId, playerWindow, OnLayoutPlayerWindow, (Texture)null, HighLogic.Skin.window);
 			}
 		}
 
@@ -68,15 +68,15 @@ namespace kTunes
 		{
 			GUILayout.BeginHorizontal ();
 
-			if (GUILayout.Button ("P")) {
+			if (GUILayout.Button (GameDatabase.Instance.GetTexture (Name + "/Textures/previous_icon", false))) {
 				InputSimulator.SimulateKeyPress (VirtualKeyCode.MEDIA_PREV_TRACK);
 			}
 
-			if (GUILayout.Button ("P/P")) {
+			if (GUILayout.Button (GameDatabase.Instance.GetTexture (Name + "/Textures/play_pause_icon", false))) {
 				InputSimulator.SimulateKeyPress (VirtualKeyCode.MEDIA_PLAY_PAUSE);
 			}
 
-			if (GUILayout.Button ("N")) {
+			if (GUILayout.Button (GameDatabase.Instance.GetTexture (Name + "/Textures/next_icon", false))) {
 				InputSimulator.SimulateKeyPress (VirtualKeyCode.MEDIA_NEXT_TRACK);
 			}
 
