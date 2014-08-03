@@ -32,15 +32,25 @@ namespace kTunes
 
 		private void OnGUIApplicationLauncherReady ()
 		{
-			appLauncherButton = ApplicationLauncher.Instance.AddModApplication (
-				OnAppLauncherToggleOn,
-				OnAppLauncherToggleOff,
-				NoOp,
-				NoOp,
-				NoOp,
-				NoOp,
-				ApplicationLauncher.AppScenes.ALWAYS,
-				(Texture)GameDatabase.Instance.GetTexture (Name + "/Textures/app_launcher_icon", false));
+			CreateLauncherButton ();
+
+			ApplicationLauncher.Instance.AddOnShowCallback (CreateLauncherButton);
+
+			ApplicationLauncher.Instance.AddOnHideCallback (() => {
+				isPlayerVisible = false;
+
+				if (appLauncherButton != null) {
+					ApplicationLauncher.Instance.RemoveModApplication (appLauncherButton);
+					appLauncherButton = null;
+				}
+			});
+		}
+
+		private void CreateLauncherButton ()
+		{
+			if (appLauncherButton == null) {
+				appLauncherButton = ApplicationLauncher.Instance.AddModApplication (OnAppLauncherToggleOn, OnAppLauncherToggleOff, NoOp, NoOp, NoOp, NoOp, ApplicationLauncher.AppScenes.ALWAYS, (Texture)GameDatabase.Instance.GetTexture (Name + "/Textures/app_launcher_icon", false));
+			}
 		}
 
 		private void OnAppLauncherToggleOn ()
@@ -60,7 +70,7 @@ namespace kTunes
 		public void OnGUI ()
 		{
 			if (isPlayerVisible) {
-				playerWindow = GUI.Window (playerWindowId, playerWindow, OnLayoutPlayerWindow, (Texture)null, HighLogic.Skin.window);
+				playerWindow = GUI.Window (playerWindowId, playerWindow, OnLayoutPlayerWindow, Name, HighLogic.Skin.window);
 			}
 		}
 
