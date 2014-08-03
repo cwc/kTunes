@@ -17,8 +17,16 @@ namespace kTunes
 		public static GameObject Instance;
 
 		// Use a random window ID so a conflict will be unlikely
-		private static int playerWindowId = UnityEngine.Random.Range (500, int.MaxValue);
-		private static Rect playerWindow = new Rect (50, 50, 175, 60);
+		private static readonly int PlayerWindowId = UnityEngine.Random.Range (500, int.MaxValue);
+
+		// The initial window position is near the top, centered horizontally
+		private const int PlayerWindowWidth = 175;
+		private const int PlayerWindowHeight = 35;
+		private static readonly int PlayerWindowXOffset = Screen.width / 2 - PlayerWindowWidth / 2;
+		private const int PlayerWindowYOffset = 35;
+
+		private static Rect playerWindowRect = new Rect (PlayerWindowXOffset, PlayerWindowYOffset, PlayerWindowWidth, PlayerWindowHeight);
+		private static GUIStyle playerWindowStyle = new GUIStyle(HighLogic.Skin.window);
 
 		private static ApplicationLauncherButton appLauncherButton;
 		private static bool isPlayerVisible = false;
@@ -26,6 +34,8 @@ namespace kTunes
 		public void Awake ()
 		{
 			DontDestroyOnLoad (this);
+
+			playerWindowStyle.padding = new RectOffset(5, 5, 5, 5);
 
 			GameEvents.onGUIApplicationLauncherReady.Add (OnGUIApplicationLauncherReady);
 		}
@@ -70,7 +80,7 @@ namespace kTunes
 		public void OnGUI ()
 		{
 			if (isPlayerVisible) {
-				playerWindow = GUI.Window (playerWindowId, playerWindow, OnLayoutPlayerWindow, Name, HighLogic.Skin.window);
+				playerWindowRect = GUI.Window (PlayerWindowId, playerWindowRect, OnLayoutPlayerWindow, (string)null, playerWindowStyle);
 			}
 		}
 
