@@ -23,7 +23,7 @@ namespace kTunes
 		private const int PlayerWindowWidth = 175;
 		private const int PlayerWindowHeight = 35;
 		private static readonly int PlayerWindowXOffset = Screen.width / 2 - PlayerWindowWidth / 2;
-		private const int PlayerWindowYOffset = 35;
+		private const int PlayerWindowYOffset = 65;
 
 		private static Rect playerWindowRect = new Rect (PlayerWindowXOffset, PlayerWindowYOffset, PlayerWindowWidth, PlayerWindowHeight);
 		private static GUIStyle playerWindowStyle = new GUIStyle(HighLogic.Skin.window);
